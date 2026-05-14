@@ -97,16 +97,6 @@ Automatically scrolls display to right side.
 
 ---
 
-# Important Note
-
-This project uses:
-
-eval()
-
-For production-level applications, avoid eval() and use a proper math parser for security.
-
----
-
 # Author
 
 Made for learning JavaScript calculator logic.
