@@ -1,0 +1,199 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+html,
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #0f172a, #1e293b, #111827);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Glow */
+
+body::before,
+body::after{
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: -1;
+}
+
+body::before{
+    background: #00f7ff;
+    top: -120px;
+    left: -120px;
+}
+
+body::after{
+    background: #ff00f7;
+    bottom: -120px;
+    right: -120px;
+}
+
+/* Calculator */
+
+.calculator{
+    width: 100%;
+    max-width: 360px;
+    padding: clamp(15px, 4vw, 25px);
+    border-radius: 28px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.4),
+        inset 0 0 15px rgba(255,255,255,0.05);
+
+    overflow: hidden;
+}
+
+/* History + Display */
+
+.history,
+.display{
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: right;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.history::-webkit-scrollbar,
+.display::-webkit-scrollbar{
+    display: none;
+}
+
+.history{
+    height: 28px;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    margin-bottom: 5px;
+}
+
+/* Display */
+
+.display{
+    height: clamp(65px, 12vw, 85px);
+    border-radius: 18px;
+    padding: 15px;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+}
+
+/* Buttons */
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(8px, 2vw, 15px);
+}
+
+.btn{
+    aspect-ratio: 1 / 1;
+    min-height: 55px;
+    border: none;
+    border-radius: 18px;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.2),
+        inset 0 0 5px rgba(255,255,255,0.05);
+}
+
+.btn:hover{
+    transform: translateY(-3px) scale(1.03);
+    background: rgba(255,255,255,0.18);
+}
+
+.btn:active{
+    transform: scale(0.95);
+}
+
+/* Operator Buttons */
+
+.operator{
+    background: linear-gradient(135deg, #ff7b00, #ffb700);
+}
+
+.operator:hover{
+    box-shadow: 0 0 20px rgba(255,183,0,0.7);
+}
+
+/* Equal Button */
+
+.equal{
+    background: linear-gradient(135deg, #00c853, #00e676);
+}
+
+.equal:hover{
+    box-shadow: 0 0 20px rgba(0,230,118,0.7);
+}
+
+/* Clear Button */
+
+ .clear{
+    aspect-ratio: auto;
+    height: 60px;
+    background: linear-gradient(135deg, #ff1744, #ff5252);
+}
+
+.clear:hover{
+    box-shadow: 0 0 20px rgba(255,82,82,0.7);
+} 
+
+/* Small Mobile */
+
+@media (max-width: 400px){
+
+    body{
+        padding: 10px;
+    }
+
+    .calculator{
+        border-radius: 22px;
+        padding: 15px;
+    }
+
+    .display{
+        border-radius: 14px;
+        padding: 12px;
+    }
+
+    .btn{
+        border-radius: 14px;
+        min-height: 50px;
+    }
+
+    .clear{
+        height: 52px;
+    }
+
+}
